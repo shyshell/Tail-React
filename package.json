@@ -2,10 +2,12 @@
   "name": "tail-react",
   "version": "1.0.0",
   "description": "Configures Tailwindcss in your Reactjs project",
-  "main": "tailReact.js",
+  "main": "./tailReact.js",
+  "bin": {
+    "tail-react": "./tailReact.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run dev"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Inffinite",
   "license": "ISC",
