@@ -1,13 +1,13 @@
 {
   "name": "tail-react",
   "version": "1.0.0",
-  "description": "Configures tailwind in your reactjs project",
+  "description": "Configures Tailwindcss in your Reactjs project",
   "main": "tailReact.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev"
   },
-  "author": "",
+  "author": "Inffinite",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0",
