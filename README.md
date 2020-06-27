@@ -1,3 +1,4 @@
+![](/tail-react.png)
 # Tail-React
 Automatically configure Tailwindcss to your React App
 
