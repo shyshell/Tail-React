@@ -15,21 +15,26 @@ const argv = require('yargs')
     .help()
     .argv
 
-// console.log(argv.path)
 
 let projectPath = argv.path
 
-// console.log(projectPath)
+confirm = () => {
+    fs.access(`${projectPath}`, function(error){
+        if(error){
+            console.log(chalk.red(`[---] ${projectPath} does not exist.`))
+            return;
+        }
+        else {
+            installPackages(projectPath)
+        }
+    })
+}
 
-// const spinner = new Spinner(emoji.get('coffee') + 'Processing... %s');
-// spinner.setSpinnerString('|/-\\')
-// spinner.start()
-
-installPackages = () => {
-    const spinner = new Spinner(emoji.get('coffee') + 'Installing required packages... %s');
+installPackages = (projectPath) => {
+    const spinner = new Spinner(emoji.get('coffee') + ' Installing required packages... %s');
     spinner.setSpinnerString('|/-\\')
     spinner.start()
-    exec("npm install tailwindcss postcss-cli autoprefixer postcss-import", (error, stdout, stderr) => {
+    exec(`npm install tailwindcss postcss-cli autoprefixer postcss-import --save-dev`, {cwd: `${projectPath}`}, (error, stdout, stderr) => {
         if (error) {
             spinner.stop()
             console.log(`\n${error.message}`);
@@ -37,31 +42,30 @@ installPackages = () => {
         }
         if (stderr) {
             spinner.stop()
-            console.log(`\n${stderr}`);
-            return;
+            // console.log(`\n${stderr}`);
+            return configureFiles(projectPath)
         }
         spinner.stop()
         console.log('\n[+] Done')
-        configureFiles(projectPath)
+        return configureFiles(projectPath)
         // console.log(`\n${stdout}`);
     })
 }
 
-// installPackages()
 
 configureFiles = (projectPath) => {
-    const spinner = new Spinner('\n' + emoji.get('coffee') + 'Configuring files... %s');
+    const spinner = new Spinner('\n' + emoji.get('coffee') + ' Configuring files... %s');
     spinner.setSpinnerString('|/-\\')
     spinner.start()
 
     const fileData = '@tailwind base;\n@tailwind components;\n@tailwind utilities;'
     const postcss = 'module.exports = {\n\tplugins: [\n\t\trequire(\'tailwindcss\'),\n\t\trequire(\'autoprefixer\'),\n\t],\n};'
 
-    fs.mkdirSync(`${path}/src/styles`)
+    fs.mkdirSync(`${projectPath}/src/styles`)
 
     fs.writeFileSync(`${projectPath}/src/styles/index.css`, fileData)
     fs.writeFileSync(`${projectPath}/src/styles/tailwind.css`, null)
-    s.writeFileSync(`${projectPath}/postcss.config.js`, postcss)
+    fs.writeFileSync(`${projectPath}/postcss.config.js`, postcss)
 
     spinner.stop()
     console.log('\n[+] Done')
@@ -69,7 +73,7 @@ configureFiles = (projectPath) => {
 }
 
 editPackageJson = (projectPath) => {
-    const spinner = new Spinner('\n' + emoji.get('coffee') + 'Modifying package.json... %s');
+    const spinner = new Spinner(emoji.get('coffee') + ' Modifying package.json... %s');
     spinner.setSpinnerString('|/-\\')
     spinner.start()
 
@@ -80,8 +84,8 @@ editPackageJson = (projectPath) => {
     file.save()
     spinner.stop()
 
-    console.log('\n' + emoji.get('tophat') + 'Tailwind configured successfully.')
-    // console.log(file.get());
+    console.log('\n' + emoji.get('tophat') + ' Tailwind configured successfully.')
+    console.log('\n' + emoji.get('sparkles') + chalk.blue(' run: npm start'))
 }
 
-installPackages()
+confirm(projectPath)
