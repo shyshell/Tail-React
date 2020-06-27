@@ -46,12 +46,10 @@ installPackages = (projectPath) => {
             return configureFiles(projectPath)
         }
         spinner.stop()
-        console.log('\n[+] Done')
         return configureFiles(projectPath)
         // console.log(`\n${stdout}`);
     })
 }
-
 
 configureFiles = (projectPath) => {
     const spinner = new Spinner('\n' + emoji.get('coffee') + ' Configuring files... %s');
@@ -65,10 +63,29 @@ configureFiles = (projectPath) => {
 
     fs.writeFileSync(`${projectPath}/src/styles/index.css`, fileData)
     fs.writeFileSync(`${projectPath}/src/styles/tailwind.css`, null)
-    fs.writeFileSync(`${projectPath}/postcss.config.js`, postcss)
+
+    if(fs.existsSync(`${projectPath}/postcss.config.js`)){
+        fs.unlink(`${projectPath}/postcss.config.js`, (err) => {
+            if(err){
+                return console.log(err)
+            }
+        })
+    } else{
+        fs.writeFileSync(`${projectPath}/postcss.config.js`, postcss)
+    }
+
+    fs.readFile(`${projectPath}/src/index.js`, 'utf8', function read(err, data){
+        if(err){
+            console.log(emoji.get('flashlight') + ' Couldn\'t find ' + chalk.red('index.js'))
+            console.log(emoji.get('flashlight') + ' Anyway! Use ' + chalk.blue('import \'./styles/tailwind.css\'') + 'where tailwind is needed.')
+        } else{
+            const content = data 
+            const result = `import './styles/tailwind.css';\n${content}`
+            fs.writeFileSync(`${projectPath}/src/index.js`, result)
+        }
+    })
 
     spinner.stop()
-    console.log('\n[+] Done')
     editPackageJson(projectPath)
 }
 
@@ -85,7 +102,7 @@ editPackageJson = (projectPath) => {
     spinner.stop()
 
     console.log('\n' + emoji.get('tophat') + ' Tailwind configured successfully.')
-    console.log('\n' + emoji.get('sparkles') + chalk.blue(' run: npm start'))
+    console.log('\t' + 'Run: ' + chalk.blue('npm start'))
 }
 
 confirm(projectPath)
