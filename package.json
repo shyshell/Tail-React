@@ -2,9 +2,9 @@
   "name": "tail-react",
   "version": "1.0.0",
   "description": "Configures Tailwindcss in your Reactjs project",
-  "main": "./tailReact.js",
+  "main": "./tail-react.js",
   "bin": {
-    "tail-react": "./tailReact.js"
+    "tail-react": "./tail-react.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
