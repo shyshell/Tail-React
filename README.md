@@ -12,9 +12,17 @@ Automatically configure Tailwindcss to your React App
 
 * A React Project [obviously]
 
+* Nodejs
+
 
 # Usage
 
-* npm install tail-react
-* tail-react --path [path to your project]
+* git clone git@github.com:Inffinite/Tail-React.git
 
+* cd Tail-React
+ 
+* node tail-react.js --path /path/to/your/project
+
+# Contributions
+
+* Contributions are welcomed no matter how small
