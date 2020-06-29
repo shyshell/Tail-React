@@ -1,14 +1,15 @@
 {
   "name": "tail-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Configures Tailwindcss in your Reactjs project",
   "main": "./tail-react.js",
   "bin": {
-    "tail-react": "node tail-react.js"
+    "tail-react": "./bin/tail-react.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "preferGlobal": true,
   "author": "Inffinite",
   "license": "ISC",
   "dependencies": {
