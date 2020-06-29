@@ -15,6 +15,6 @@ Automatically configure Tailwindcss to your React App
 
 # Usage
 
-* npm install tail-react -g
+* npm install tail-react
 * tail-react --path [path to your project]
 
