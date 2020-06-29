@@ -1,6 +1,6 @@
 # Tail-React
 
-![](/tail-react.png)
+![](https://raw.githubusercontent.com/Inffinite/Tail-React/master/tail-react.png)
 
 [![tail-react issues](https://img.shields.io/github/issues/Inffinite/Tail-React)](https://github.com/Inffinite/Tail-React)
 [![tail-react stars](https://img.shields.io/github/stars/Inffinite/Tail-React)](https://github.com/Inffinite/Tail-React)
