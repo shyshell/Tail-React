@@ -4,7 +4,7 @@
   "description": "Configures Tailwindcss in your Reactjs project",
   "main": "./tail-react.js",
   "bin": {
-    "tail-react": "./tail-react.js"
+    "tail-react": "node tail-react.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
