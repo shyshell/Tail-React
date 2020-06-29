@@ -1,4 +1,4 @@
-#!/usr/local/bin/env node
+#!/usr/local/bin/node node
 
 const Spinner = require('cli-spinner').Spinner
 const fs = require('fs')
