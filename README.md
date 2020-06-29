@@ -17,7 +17,7 @@ Automatically configure Tailwindcss to your React App
 
 # Usage
 
-* git clone [clone me](git@github.com:Inffinite/Tail-React.git) 
+* Clone it
 
 * cd Tail-React
  
