@@ -10,14 +10,23 @@ const argv = require('yargs')
     .help()
     .argv
 
+const execute = async(path) => {
+    try {
+        await tailReact.confirm(path)
+    } catch (e) {
+        return
+    }
+}
+
 if(argv.path == "."){
     console.log(`The path is ${process.cwd()}`)
     let projectPath = `${process.cwd()}`
-    tailReact.confirm(projectPath)
+    execute(projectPath)
 } else {
     let projectPath = argv.path 
-    tailReact.confirm(projectPath)
+    execute(projectPath)
 }
+
     
 
 

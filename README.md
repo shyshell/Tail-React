@@ -15,14 +15,12 @@ Automatically configure Tailwindcss to your React App
 * Nodejs
 
 
-# Usage
+# USAGE
 
-* Clone it
+* npm install -g tail-react
 
-* cd Tail-React
+* Navigate to the root directory of your project
  
-* node tail-react.js --path /path/to/your/project
+* tail-react --path .
 
-# Contributions
 
-* Contributions are welcomed no matter how small
