@@ -12,9 +12,6 @@
   },
   "preferGlobal": true,
   "author": "Inffinite",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Inffinite/Tail-React"
