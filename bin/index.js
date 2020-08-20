@@ -19,7 +19,6 @@ const execute = async(path) => {
 }
 
 if(argv.path == "."){
-    console.log(`The path is ${process.cwd()}`)
     let projectPath = `${process.cwd()}`
     execute(projectPath)
 } else {
