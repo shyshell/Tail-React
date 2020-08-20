@@ -1,6 +1,6 @@
 {
   "name": "tail-react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Configures Tailwindcss in your Reactjs project",
   "main": "./lib/tail-react.js",
   "bin": {
@@ -12,6 +12,10 @@
   },
   "preferGlobal": true,
   "author": "Inffinite",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Inffinite/Tail-React"
+  },
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0",
