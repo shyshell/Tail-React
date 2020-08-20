@@ -1,6 +1,6 @@
 {
   "name": "tail-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Configures Tailwindcss in your Reactjs project",
   "main": "./lib/tail-react.js",
   "bin": {
